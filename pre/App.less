@@ -1,0 +1,136 @@
+/*
+
+==================== NATURETRAK
+
+== TABLE OF CONTENTS (use Crtl + F to skip to the section you need)
+
+1 Predefined Styles
+2 Structure
+3 Elements
+
+*/
+
+@import "flex";
+@import "helpers";
+
+// ==================== 1 Predefined Styles
+
+
+h1, h2, h3, h4, h5 {margin: 0;}
+p {}
+
+// primary
+@p1: #e4d5e9;
+@p2: #664a9e;
+@p3: #584b80;
+@p4: #4e4a68;
+
+// complimentary
+@c1: #9cab68;
+@c2: #838d65;
+@c3: #6b5464;
+
+// tertiary
+@t1: #c7bdcc;
+@t2: #8c87a6;
+@t3: #917ba3;
+
+// neutrals
+@n1: #c8d0ea;
+@n2: #9597ae;
+@n3: #71788e;
+@n4: #5e6679;
+@n5: #464d5a;
+
+.caps {text-transform: uppercase;};
+
+
+// ==================== 2 Structure
+body {
+  .w(100%);
+  .h(100%);
+  overflow-x: hidden;
+  background-color: #f7fff6;
+}
+.space30  {.h(30px);}
+.space40  {.h(40px);}
+.space50  {.h(50px);}
+.space100 {.h(100px);}
+.space150 {.h(150px);}
+
+.w100 {width: 100%;}
+
+
+// ==================== 3 Elements
+.intro-logo {
+  .maxw(400px);
+  .w(100%);
+}
+#main-container {
+  .w(100%);
+}
+.block-fluid,
+.block-cont {
+  .w(100%);
+  .h(auto);
+  border: 1px solid purple;
+}
+.block-cont {
+  .maxw(992px);
+  .m-0-a;
+}
+.title {
+  .maxw(992px);
+  .m-0-a;
+}
+.section1 {
+  .h(900px);
+  .flex;
+  .flex-direction(row);
+  .block1 {
+    .w(50%);
+    .h(100%);
+    .flex;
+    .flex-direction(column);
+    .justify-content(center);
+    .align-items(flex-end);
+  }
+}
+.section2 {
+  .row {
+    .flex;
+    .flex-direction(row);
+    .justify-content(center);
+    .flex-wrap(wrap);
+    .one-third {
+      .w(33%);
+      .text-c;
+      .flex;
+      .flex-direction(column);
+      .align-items(center);
+      .justify-content(center);
+      .align-content(center);
+      img {.maxw(250px);}
+    }
+    .one-full {
+      .w(100%);
+    }
+    .one-half {
+      .w(50%);
+    }
+  }
+}
+.section3{
+  .flex;
+  .flex-direction(row);
+  .flex-wrap(wrap);
+  .two-fifth {
+    .w(40%);
+    .flex;
+    .flex-direction(column);
+    .justify-content(center);
+  }
+  .three-fifth {
+    .w(60%);
+  }
+}
