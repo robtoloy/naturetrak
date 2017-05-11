@@ -42,8 +42,8 @@ class App extends Component {
         <section>
           <div id="problem" className="container">
             <div className="row">
-              <div className="column">
-                  <p>30 states have legalized medical marijuana and of those 9 states have legalized marijuana for recreational use</p>
+              <div className="column text-c">
+                  <p className="lead">30 states have legalized medical marijuana and of those 9 states have legalized marijuana for recreational use</p>
                 </div>
             </div>
             <div className="row">
@@ -58,8 +58,8 @@ class App extends Component {
             </div>
             <div className="row">
               <div className="column">
-                <h2>Problem</h2>
-                <p>How to ease public tension by providing bulletproof transparency from seed-to-sell?</p>
+                <blockquote><h2>Problem</h2></blockquote>
+                <p className="lead">How to ease public tension by providing bulletproof transparency from seed-to-sell?</p>
               </div>
             </div>
             <div className="row">
@@ -76,13 +76,13 @@ class App extends Component {
         <section>
           <div id="solution" className="container">
             <div className="row">
-              <div className="column column-40">
+              <div className="column column-33">
                 <div className="vertical">
-                  <h2>Solution</h2>
-                  <p>A closed loop, end-to-end solution operating within the rules and regulations set forth by state and local governments.</p>
+                  <blockquote><h2>Solution</h2></blockquote>
+                  <p className="lead">A closed loop, end-to-end solution operating within the rules and regulations set forth by state and local governments.</p>
                   <h4>Track &amp; Trace</h4>
                   <p>Track &amp; Trace (TnT) is a cloud-based peer-to-peer system, where information accurately assembles upward as clean and discrete data elements. Bluntli as a solution is anti-counterfeit, accessible and transparent to both business and the end consumer.</p>
-                  <h4>Benefits</h4>
+                  <h3>Benefits</h3>
                   <div>
                     <ul>
                       <li>Visibility across supply chains</li>
@@ -94,7 +94,7 @@ class App extends Component {
                   </div>
                 </div>
               </div>
-              <div className="column column-60">
+              <div className="column column-67">
                 <img className="tnt" src={tnt} alt="" />
               </div>
             </div>
@@ -104,10 +104,10 @@ class App extends Component {
         <section>
           <div id="overview" className="container">
             <div className="row">
-              <div className="column">
+              <div className="column column-33">
                 <div className="vertical">
-                  <h2>Track. Trace. Verify.</h2>
-                  <p>Cannabis Verification Solutions</p>
+                  <blockquote><h2>Track. Trace. Verify.</h2></blockquote>
+                  <p className="lead">Cannabis Verification Solutions</p>
                   <p>Our end-to-end system tracks, traces and validates in real-time the identity, status and location of any product, business or employee through each transaction point, providing patients peace of mind, high quality, legitimatized cannabis products. The safety and security people have come to expect from other industries and goods and services is everything NatureTrak has to offer.</p>
                   <hr/>
                   <div>
@@ -123,21 +123,14 @@ class App extends Component {
                   </div>
                 </div>
               </div>
-              <div className="column">
-                <img className="ttv" src={ttv} alt="" />
+              <div className="column column-67">
+                <div className="vertical">
+                  <img className="ttv" src={ttv} alt="" />
+                </div>
               </div>
             </div>
           </div>
-        </section>
-
-        <section>
           <div id="component1" className="container">
-            <div className="row">
-              <div className="column">
-                <div className="vertical"></div>
-                <p>Our patent-pending medical marijuana verification solution.</p>
-              </div>
-            </div>
             <div className="row">
               <div className="column">
                 <img className="scan" src={scan} alt="" />
@@ -153,7 +146,7 @@ class App extends Component {
             </div>
             <div className="row">
               <div className="column">
-                <p>Our patent-pending verification solution removes the guesswork at every business and patient level interaction. The automated digital cannabis license - a clear, simple and transparent verification solution - identifies and verifies medical marijuana businesses, employees and patients in real-time at each exchange in the value chain.</p>
+                <p>NatureTrak removes the guesswork at every business and patient level interaction. The automated digital cannabis license - a clear, simple and transparent verification solution - identifies and verifies medical marijuana businesses, employees and patients in real-time at each exchange in the value chain.</p>
               </div>
               <div className="column">
                 <p>This provides the absolute minimum regulatory compliance for medical marijuana businesses. A centralized storage of all business-related activities stored and easily managed for audit.</p>
@@ -167,11 +160,11 @@ class App extends Component {
             <div className="row">
               <div className="column">
                 <div className="vertical">
-                  <h2>Supply Chain Management</h2>
+                  <blockquote><h2>Supply Chain Management</h2></blockquote>
                   <p>TnT inventory and supply chain management that synchronized with the state’s database to maintain compliance. The is little to no hardware needed beyond a smartphone, laptop or tablet. Track, trace and report in real-time with secure, anti-counterfeit labels and unique identifiers.</p>
-                    <hr/>
-                  <h4>Technology</h4>
                   <p>This patent-pending technology ensures the scalability and security of unique labels and identifiers by managing computer nodes in a cluster.</p>
+                  <hr/>
+                  <h3>Benefits</h3>
                   <div>
                     <ul>
                       <li>Keep track of which node(s) generate and validate which specific labels or unique identifiers</li>
@@ -183,7 +176,9 @@ class App extends Component {
                 </div>
               </div>
               <div className="column">
-                <img className="origin" src={origin} alt="" />
+                <div className="vertical">
+                  <img className="origin" src={origin} alt="" />
+                </div>
               </div>
             </div>
           </div>
@@ -194,11 +189,11 @@ class App extends Component {
             <div className="row">
               <div className="column">
                 <div className="vertical">
-                  <h2>Logistics</h2>
+                  <blockquote><h2>Logistics</h2></blockquote>
                   <p>Use a smartphone’s GPS or enter an address and order for delivery or search local retailers in a filtered radius. The power of real-time location of employees, suppliers or retailers, and filter by the proximity to wherever you are. A secure, trusted and transparent network of cannabis business and products right at your fingertips.</p>
-                  <hr/>
                   <p>Patients can choose to search for and order products from localities by strain, popularity, ‘frequent and favorites’ purchase history, or price. Live udpates on orders and full history of purchases ensure localilty support to businesses with access to a fully documented product history from seed-to-sell on all products available on the market.</p>
-                  <h4>Benefits</h4>
+                  <hr/>
+                  <h3>Benefits</h3>
                   <p>This patent-pending technology ensures the scalability and security of unique labels and identifiers by managing computer nodes in a cluster.</p>
                   <div>
                     <ul>
@@ -210,7 +205,9 @@ class App extends Component {
                 </div>
               </div>
               <div className="column column-33 column-offset-10">
-                <CarouselOne />
+                <div className="vertical">
+                  <CarouselOne />
+                </div>
               </div>
             </div>
           </div>
@@ -221,11 +218,13 @@ class App extends Component {
             <div className="row">
               <div className="column">
                 <div className="vertical">
-                  <h2>Payments</h2>
-                  <p>Proprietary BSA/AML Compliance Program custom tailored to each state’s marijuana regulations.</p>
+                  <blockquote><h2>Payments</h2></blockquote>
+                  <p className="lead">Proprietary BSA/AML Compliance Program custom tailored to each state’s marijuana regulations.</p>
                   <p>NatureTrak powered by Goodees takes responsibility for all regulatory compliance, which includes conducting rigorous State Regulatory Compliance Assessments, BSA/AML compliance, “Know Your Customer” due diligence, transaction due diligence, filing currency transaction reports (CTRs) and filing “Marijuana Limited” Suspicious Activity Reports (SARs).</p>
                   <p>All compliance is satisfied by one robust cannabis verification solution. NatureTrak powered by Goodees satisfies state BSA/AML compliance obligations by conducting their due diligence and are not independently responsible for regulatory compliance with regard to registered clients.</p>
                   <p>The Board of Equalization Chair Fiona Ma, Cannabis Safe Payment Act - to make it safer and simpler for cannabis business owners to pay state fees and taxes, encouraging compliance with state laws and providing support for business owners. Specifically, businesses will be able to make cash tax and fee payments at many more locations, including state agencies and local county tax collectors who agree to participate.</p>
+                  <hr/>
+                  <h3>Benefits</h3>
                     <div className="row">
                       <div className="column">
                         <div>
@@ -253,7 +252,9 @@ class App extends Component {
                 </div>
               </div>
               <div className="column column-33 column-offset-10">
-                <CarouselTwo />
+                <div className="vertical">
+                  <CarouselTwo />
+                </div>
               </div>
             </div>
           </div>
@@ -264,13 +265,15 @@ class App extends Component {
             <div className="row">
               <div className="column column-33">
                 <div className="vertical">
-                  <h2>A High Overview Of Your Cannabusiness</h2>
+                  <blockquote><h2>A High Overview Of Your Cannabusiness</h2></blockquote>
                   <p>“Cannabusiness License Audit”: a complete history of business activities, employees and partners.</p>
                   <p>The Enterprise Solution – Our enterprise solution provides a centralized location for essential cannabis licenses, business documents, government certified records, asset management and monitoring real-time all business activities from employee to transactions to inventory analytics.</p>
                 </div>
               </div>
               <div className="column column-80">
-                <img className="enterprise" src={enterprise} alt="" />
+                <div className="vertical">
+                  <img className="enterprise" src={enterprise} alt="" />
+                </div>
               </div>
             </div>
           </div>
@@ -279,10 +282,10 @@ class App extends Component {
         <section>
           <div id="raise" className="container">
             <div className="row">
-              <div className="column column-40">
+              <div className="column">
                 <div className="vertical">
-                  <h2>MVP - Raising $250k</h2>
-                  <p>A successful raise of the NatureTrak MVP round ensures: <br/><strong>SDLC, Testing, Legal Expenses, Lobbyist Engagement and Operational Support</strong></p>
+                  <blockquote><h2>MVP - Raising $250k</h2></blockquote>
+                  <p className="lead">A successful raise of the NatureTrak MVP round ensures: <br/><strong>SDLC, Testing, Legal Expenses, Lobbyist Engagement and Operational Support</strong></p>
                   <div>
                     <h4>May</h4>
                     <ul>
@@ -309,8 +312,10 @@ class App extends Component {
                   </div>
                 </div>
               </div>
-              <div className="column column-60">
-                <img className="mvp" src={mvp} alt="" />
+              <div className="column">
+                <div className="vertical">
+                  <img className="mvp" src={mvp} alt="" />
+                </div>
               </div>
             </div>
           </div>
