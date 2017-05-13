@@ -1,0 +1,63 @@
+
+/*
+http://codepen.io/photodow/pen/zxBGJZ
+https://blog.trackduck.com/2015/06/25/15-captivating-parallax-effects-from-codepen/
+*/
+
+.transformz(@value){
+  -webkit-transform: translateZ(@value);
+  transform: translateZ(@value);
+}
+@1: 0;
+@2: -.25px;
+@3: -.5px;
+@4: -.75px;
+@5: -1px;
+@6: -1.25px;
+@7: -1.5px;
+
+.parallax {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100vh;
+  white-space: nowrap;
+  .one {
+    color: #ccc;
+    .transformz(@1);
+  }
+  .two {
+    color: #bbb;
+    .transformz(@2);
+  }
+  .three {
+    color: #aaa;
+    .transformz(@3);
+  }
+  .four {
+    color: #999;
+    .transformz(@4);
+  }
+  .five {
+    color: #888;
+    .transformz(@5);
+  }
+  .six {
+    color: #777;
+    .transformz(@6);
+  }
+  .seven {
+    color: #666;
+    .transformz(@7);
+  }
+}
