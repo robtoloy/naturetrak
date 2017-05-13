@@ -59,7 +59,7 @@ class App extends Component {
                 </button>
               </div>
             </div>
-            <div id="ntVideo" className="row">
+            <div id="ntVideo" className="row fadeIn">
               <div className="column">
                 <Video />
               </div>

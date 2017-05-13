@@ -161,6 +161,110 @@
 .transition-all-ease {
   transition: all 0.3s ease;
 }
+@-webkit-keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+    }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+    }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.fadeIt {
+  -webkit-animation-name: fadeIt;
+  -webkit-animation-duration: 7s;
+  animation-name: fadeIt;
+  animation-duration: 7s;
+}
+
+@-webkit-keyframes fadeIt {
+   0%  {opacity: 0}
+  15%  {opacity: 0.35}
+  25%  {opacity: 0.55}
+  40%  {opacity: 0.75}
+  65%  {opacity: 1}
+  75%  {opacity: 0.75}
+  85%  {opacity: 0.35}
+  100% {opacity: 0.1}
+}
+@keyframes fadeIt {
+   0%  {opacity: 0}
+  15%  {opacity: 0.35}
+  25%  {opacity: 0.55}
+  40%  {opacity: 0.75}
+  65%  {opacity: 1}
+  75%  {opacity: 0.75}
+  85%  {opacity: 0.35}
+  100% {opacity: 0.1}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 0.75s;
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+}
+
+@-webkit-keyframes fadeIn {
+    0%  {opacity: 0}
+    25% {opacity: 25%}
+    50% {opacity: 50%}
+    75% {opacity: 75%}
+    100% {opacity: 1}
+}
+@keyframes fadeIn {
+    0%  {opacity: 0}
+    25% {opacity: 25%}
+    50% {opacity: 50%}
+    75% {opacity: 75%}
+    100% {opacity: 1}
+}
+
+#backToTop {
+    width: 40px;
+    height: 40px;
+    line-height: 52px;
+    overflow: hidden;
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 12px;
+    background-color: #d0ddd5;
+    color: #6f8b7c;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+#backToTop:hover {
+    background-color: #323f38;
+    color: #d0ddd5;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
 .m-0-a {margin: 0 auto;}
 
 // http://aslanbakan.com/en/blog/less-space-responsive-css-margin-and-padding-helper-classes/
