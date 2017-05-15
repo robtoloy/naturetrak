@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 
 import intro from './intro.svg';
 import logo from './logo.svg';
-import play from './play.svg';
 import goodees from './goodees.svg';
 import map from './map.svg';
 import fed from './fed.svg';
 import tnt from './tnt.svg';
 import ttv from './ttv.svg';
 import scan from './scan.svg';
-import origin from './origin.svg';
+import supply from './supply.svg';
 import enterprise from './enterprise.svg';
-import mvp from './mvp.svg';
 import outro from './outro.svg';
 
 import CarouselOne from './C1';
@@ -37,9 +35,6 @@ class App extends Component {
                 <img className="logo" src={logo} alt="" />
                 <img className="goodees" src={goodees} alt="" />
                 <h3>Cannabis Verification Solutions</h3>
-                <p>Jontae James<br/>
-                Co-Founder
-                </p>
               </div>
               <div id="introGraphic" className="column text-c">
                 <img className="intro" src={intro} alt="" />
@@ -54,6 +49,7 @@ class App extends Component {
             <div className="row">
               <div id="videoInfo" className="column">
                 <h2>A Higher Standard</h2>
+                <p>Learn how NatureTrak helps you.</p>
                 <button onClick={toggleVideo}>
                   Watch
                 </button>
@@ -111,13 +107,13 @@ class App extends Component {
                   <blockquote><h2>Solution</h2></blockquote>
                   <p className="lead">A closed loop, end-to-end solution operating within the rules and regulations set forth by state and local governments.</p>
                   <h3>Track &amp; Trace</h3>
-                  <p>Track &amp; Trace (TnT) is a cloud-based peer-to-peer system, where information accurately assembles upward as clean and discrete data elements. Bluntli as a solution is anti-counterfeit, accessible and transparent to both business and the end consumer.</p>
+                  <p>Track &amp; Trace (TnT) is a cloud-based peer-to-peer system, where information accurately assembles upward as clean and discrete data elements. NatureTrak as a solution is anti-counterfeit, accessible and transparent to both business and the end consumer.</p>
                   <h3>Benefits</h3>
                   <div>
                     <ul>
                       <li>Visibility across supply chains</li>
                       <li>Deter illegal sales</li>
-                      <li>Proof of origin</li>
+                      <li>Proof of supply</li>
                       <li>Deter theft and fraud</li>
                       <li>Regulatory compliance</li>
                     </ul>
@@ -211,7 +207,7 @@ class App extends Component {
               </div>
               <div className="column">
                 <div className="vertical">
-                  <img className="origin" src={origin} alt="" />
+                  <img className="supply" src={supply} alt="" />
                 </div>
               </div>
             </div>

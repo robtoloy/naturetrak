@@ -166,9 +166,6 @@ section {
   .goodees {
     .w(55px);
   }
-  #intro {
-    height: 350px;
-  }
   .intro {
     .w(100%);
     .h(300px);
@@ -193,9 +190,9 @@ section {
     }
   }
   .mocks {
-    flex: 0 0 60% !important;
-    max-width: 60% !important;
-    margin-left: 20% !important;
+    flex: 0 0 80% !important;
+    max-width: 80% !important;
+    margin: 0 auto !important;
     margin-bottom: inherit;
     padding: 0 1.0rem;
   }
@@ -206,6 +203,12 @@ section {
       list-style: none;
       text-align: center;
   }
+	.supply {
+		width: 80%;
+		.flex;
+		.align-self(flex-end);
+		margin: 0 auto;
+	}
 
   #solution,
   #overview,
@@ -217,7 +220,11 @@ section {
     }
   }
   #outroInfo {
-    order: 2;
+	  order: 2;
+		.flex;
+		.flex-direction(column);
+		.justify-content(center);
+		.align-items(flex-start);
   }
 }
 // mobile 480 px
@@ -245,11 +252,11 @@ section {
     padding: 0 1.0rem;
   }
   .slick-dots {
-      bottom: -45px;
-      width: 100%;
-      margin: 0;
-      list-style: none;
-      text-align: center;
+    bottom: -45px;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    text-align: center;
   }
 }
 // desktop 992px
@@ -293,6 +300,7 @@ section {
     .flex-direction(column);
     .justify-content(center);
     .h(100%);
+		padding-right: 4rem;
   }
 
   #component4,
@@ -303,10 +311,9 @@ section {
     }
   }
   .mocks {
-    flex: 0 0 33% !important;
-    max-width: 33% !important;
-    margin-left: 5% !important;
-    margin-bottom: inherit;
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+    margin: 0 auto !important;
     padding: 0 1.0rem;
   }
 }
