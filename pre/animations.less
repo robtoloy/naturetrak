@@ -1,0 +1,183 @@
+.cityFade-enter { opacity: 0.01; }
+.cityFade-enter.cityFade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+.cityFade-leave { opacity: 1; }
+.cityFade-leave.cityFade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+.cityFade-appear { opacity: 0.01; }
+.cityFade-appear.cityFade-appear-active {
+  opacity: 1;
+  transition: opacity 1.5s ease-in;
+}
+
+
+@keyframes IntroFade {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.dropper {
+  animation: Dropper 1.9s 1.2s ease-in-out infinite;
+}
+@keyframes Dropper {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(1.5px); }
+  50%  { transform: translateY(3px); }
+  75%  { transform: translateY(1.5px); }
+  100% { transform: translateY(0); }
+}
+#dropper { .dropper; }
+
+
+.clipboard {
+  animation: Clipboard 4s 1.2s ease-in-out infinite;
+}
+@keyframes Clipboard {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-1.5px); }
+  50%  { transform: translateY(-2.5px); }
+  75%  { transform: translateY(-1.5px); }
+  100% { transform: translateY(0); }
+}
+#clipboard { .clipboard; }
+.checkmarks {
+  animation: checkmark 3s 1.2s infinite;
+}
+@keyframes checkmark {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+#clipboard {
+  .st168 {.checkmarks;}
+}
+
+
+.bottle {
+  animation: Bottle 2.8s 1.2s ease-in-out infinite;
+}
+@keyframes Bottle {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(.5px); }
+  50%  { transform: translateY(2px); }
+  75%  { transform: translateY(.5px); }
+  100% { transform: translateY(0); }
+}
+#bottle { .bottle; }
+
+
+.ediblePhone {
+  animation: ediblePhone 1.8s 1.2s ease-in-out infinite;
+}
+@keyframes ediblePhone {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+#ediblePhone { .ediblePhone; }
+
+.dotPath {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 170s 1.9s linear forwards infinite;
+}
+@keyframes dash {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+#dotPathMakerToCourt,
+#dotPathgrowToLab,
+#dotPathClubToLaptop,
+#dotPathDispensaryToSmallHouse,
+#dotPathGrowerToManufacturer,
+#dotPathGrowerToGrower,
+#dotPathManufacturerToDispensary {
+  .dotPath;
+}
+
+
+.flicker {
+  animation: flicker 5s 1.2s infinite;
+}
+@keyframes flicker {
+  0%   { opacity:1; transform: translateY(0); }
+  50%  { opacity:0; transform: translateY(-2px); }
+  100% { opacity:1; transform: translateY(0px); }
+}
+#lefthouseLeaf1,
+#righthouseLeaf1,
+#laptopLeaf {
+  .flicker;
+  animation-delay: 1.2s;
+}
+#lefthouseLeaf2,
+#righthouseLeaf2 {
+  .flicker;
+  animation-delay: 1.2s;
+}
+#righthouseLeaf3 {
+  .flicker;
+  animation-delay: 1.2s;
+}
+#scanner {
+  .st179 {
+    .flicker;
+    animation-duration: 3s;
+  }
+}
+
+
+.transition-all {
+  transition: all 0.1s;
+}
+.transition-all-ease {
+  transition: all 0.3s ease;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+    }
+  50% {
+    transform: scale(1.01);
+    opacity: 0.5;
+    }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.fadeIt {
+  animation-name: fadeIt;
+  animation-duration: 7s;
+}
+@keyframes fadeIt {
+   0%  {opacity: 0}
+  15%  {opacity: 0.35}
+  25%  {opacity: 0.55}
+  40%  {opacity: 0.75}
+  65%  {opacity: 1}
+  75%  {opacity: 0.75}
+  85%  {opacity: 0.35}
+  100% {opacity: 0.1}
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 0.75s;
+}
+@keyframes fadeIn {
+    0%  {opacity: 0}
+    25% {opacity: .25}
+    50% {opacity: .50}
+    75% {opacity: .75}
+    100% {opacity: 1}
+}
+.delayFade {
+  animation-fill-mode: both;
+  animation-delay: 0.35s;
+}

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 
-import wallet from './wallet.svg';
+import wallet from './wallet.png';
 import bank from './bank.svg';
-import send from './send.svg';
-import pay from './pay.svg';
-import unload from './unload.svg';
-import success from './success.svg';
+import send from './send.png';
+import pay from './pay.png';
+import unload from './unload.png';
+import success from './success.png';
 
 class CarouselTwo extends Component {
   render() {

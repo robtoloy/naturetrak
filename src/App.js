@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-import intro from './intro.svg';
-import logo from './logo.svg';
-import goodees from './goodees.svg';
+import logo from './img/logo.svg';
+// import goodees from './goodees.svg';
 import map from './map.svg';
 import fed from './fed.svg';
 import tnt from './tnt.svg';
@@ -15,7 +15,7 @@ import outro from './outro.svg';
 import CarouselOne from './C1';
 import CarouselTwo from './C2';
 import Video from './video';
-
+import Cityscape from './Cityscape';
 
 import './App.css';
 
@@ -23,21 +23,69 @@ const toggleVideo = () => {
   let x = document.getElementById('ntVideo');
   x.style.display === 'block' ? x.style.display = 'none' : x.style.display = 'block';
 }
+
 class App extends Component {
   render() {
     return (
       <div>
+
+        <div id="navButton">
+          <CSSTransitionGroup
+            transitionName="cityFade"
+            transitionAppear={true}
+            transitionAppearTimeout={1000}
+            transitionEnter={false}
+            transitionLeave={false}>
+            <nav className="menu">
+              <input type="checkbox" href="#" className="menu-open" name="menu-open" id="menu-open" />
+              <label className="menu-open-button" htmlFor="menu-open">
+                <span className="hamburger hamburger-1" />
+                <span className="hamburger hamburger-2" />
+                <span className="hamburger hamburger-3" />
+              </label>
+              <a href="#" className="menu-item"> <i className="fa fa-bar-chart" /> </a>
+              <a href="#" className="menu-item"> <i className="fa fa-plus" /> </a>
+              <a href="#" className="menu-item"> <i className="fa fa-heart" /> </a>
+              <a href="#" className="menu-item"> <i className="fa fa-envelope" /> </a>
+            </nav>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+              <defs>
+                <filter id="popMenu">
+                  <fegaussianblur in="SourceGraphic" result="blur" stdDeviation={10} />
+                  <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <fegaussianblur in="goo" stdDeviation={3} result="shadow" />
+                  <fecolormatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+                  <feoffset in="shadow" dx={1} dy={1} result="shadow" />
+                  <fecomposite in2="shadow" in="goo" result="goo" />
+                  <fecomposite in2="goo" in="SourceGraphic" result="mix" />
+                </filter>
+                <filter id="goo">
+                  <fegaussianblur in="SourceGraphic" result="blur" stdDeviation={10} />
+                  <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <fecomposite in2="goo" in="SourceGraphic" result="mix" />
+                </filter>
+              </defs>
+            </svg>
+          </CSSTransitionGroup>
+          <div className="logo">
+            <CSSTransitionGroup
+              transitionName="cityFade"
+              transitionAppear={true}
+              transitionAppearTimeout={1000}
+              transitionEnter={false}
+              transitionLeave={false}>
+              <img src={logo} alt="" />
+            </CSSTransitionGroup>
+          </div>
+        </div>
+
+
         {/* intro section */}
         <section>
           <div id="intro">
             <div className="row">
-              <div id="introInfo" className="column">
-                <img className="logo" src={logo} alt="" />
-                <img className="goodees" src={goodees} alt="" />
-                <h3>Cannabis Verification Solutions</h3>
-              </div>
-              <div id="introGraphic" className="column text-c">
-                <img className="intro" src={intro} alt="" />
+              <div id="introGraphic" className="column">
+                <Cityscape />
               </div>
             </div>
           </div>
@@ -49,7 +97,7 @@ class App extends Component {
             <div className="row">
               <div id="videoInfo" className="column">
                 <h2>A Higher Standard</h2>
-                <p>Learn how NatureTrak helps you.</p>
+                <p>Learn about NatureTrak in the cannabis industry.</p>
                 <button onClick={toggleVideo}>
                   Watch
                 </button>
@@ -121,7 +169,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="column column-60">
-                <div className="vertical">
+                <div>
                   <img className="tnt" src={tnt} alt="" />
                 </div>
               </div>
@@ -153,9 +201,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="column column-60">
-                <div className="vertical">
-                  <img className="ttv" src={ttv} alt="" />
-                </div>
+                <img className="ttv" src={ttv} alt="" />
               </div>
             </div>
           </div>
@@ -167,10 +213,12 @@ class App extends Component {
             </div>
             <div className="row">
               <div className="column">
-                <p>B2B Scan – <em>Business</em> and <em>Employee</em> verification throughout the supply chain at point of transaction.</p>
+                <h3>B2B Scan</h3>
+                <p><em>Business</em> and <em>Employee</em> verification throughout the supply chain at point of transaction.</p>
               </div>
               <div className="column">
-                <p>B2C Scan – <em>Retailer</em> and <em>Patient</em> verification during the purchase and delivery of medical products.</p>
+                <h3>B2C Scan</h3>
+                <p><em>Retailer</em> and <em>Patient</em> verification during the purchase and delivery of medical products.</p>
               </div>
             </div>
             <div className="row">
@@ -206,9 +254,7 @@ class App extends Component {
                 </div>
               </div>
               <div className="column">
-                <div className="vertical">
-                  <img className="supply" src={supply} alt="" />
-                </div>
+                <img className="supply" src={supply} alt="" />
               </div>
             </div>
           </div>
@@ -236,9 +282,7 @@ class App extends Component {
                 </div>
               </div>
               <div id="carousel1" className="mocks">
-                <div className="vertical">
-                  <CarouselOne />
-                </div>
+                <CarouselOne />
               </div>
             </div>
           </div>
@@ -276,7 +320,7 @@ class App extends Component {
                           <li>Load, unload and top up features</li>
                           <li>Load from check, debit card or bank</li>
                           <li>Unload via ACH or debit card</li>
-                          <li>Cannabis compliance consulting available</li>
+                          <li>Cannabis compliance consulting</li>
                         </ul>
                       </div>
                     </div>
@@ -284,9 +328,7 @@ class App extends Component {
                 </div>
               </div>
               <div id="carousel2" className="mocks">
-                <div className="vertical">
-                  <CarouselTwo />
-                </div>
+                <CarouselTwo />
               </div>
             </div>
           </div>
@@ -300,14 +342,12 @@ class App extends Component {
                 <div className="vertical">
                   <blockquote><h2>Enterprise</h2></blockquote>
                   <p className="lead">One scan. Endless reporting.</p>
-                  <p><strong>“Cannabusiness License Audit”:</strong> a complete history of business activities, employees and partners.</p>
+                  <p><strong>Cannabusiness License Audit</strong> – a complete history of business activities, employees and partners.</p>
                   <p><strong>The Enterprise Solution</strong> – a centralized location for essential cannabis logistics, business documents, government certified records, asset management, and monitoring of real-time business activities–from employee operations, transactions, and inventory analytics.</p>
                 </div>
               </div>
               <div className="column column-80">
-                <div className="vertical">
-                  <img className="enterprise" src={enterprise} alt="" />
-                </div>
+                <img className="enterprise" src={enterprise} alt="" />
               </div>
             </div>
           </div>
@@ -317,16 +357,28 @@ class App extends Component {
         <section>
           <div id="outro" className="container">
             <div className="row">
-              <div id="outroInfo" className="column column-33">
-                <img className="logo" src={logo} alt="" />
-                <hr/>
-                <h3 className="outroHeader">Interested?</h3>
+              <div id="outroInfo" className="column">
+                <h1 className="outroHeader">Interested?</h1>
+                <p>Sign up today and stay tuned for the latest release or take a survey below.</p>
+                  <div>
+                          {/* Begin MailChimp Signup Form */}
+                          <style type="text/css" dangerouslySetInnerHTML={{__html: "\n\t#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\n\t/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\n\t   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n" }} />
+                          <div id="mc_embed_signup">
+                            <form action="//naturetrak.us15.list-manage.com/subscribe/post?u=acb5eee66a857bd8300c6e0a1&id=6fefeee5dc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                              <div id="mc_embed_signup_scroll">
+                                <input type="email" defaultValue="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
+                                <div style={{position: 'absolute', left: '-5000px'}} aria-hidden="true"><input type="text" name="b_acb5eee66a857bd8300c6e0a1_6fefeee5dc" tabIndex={-1} defaultValue="" /></div>
+                                <div className="clear">
+                                  <input type="submit" defaultValue="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                          {/*End mc_embed_signup*/}
+                        </div>
 
-                <p><strong>Jontae James</strong></p>
-                <p>jj (@) naturetrak (dot) com</p>
-                <p>408.767.3593</p>
               </div>
-              <div className="column column-67">
+              <div className="column">
                 <img className="outro" src={outro} alt="" />
               </div>
             </div>

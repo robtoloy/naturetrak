@@ -8,6 +8,7 @@ const gulp = require('gulp'),
  			concat = require('gulp-concat'),
  			pump = require('pump'),
  			sourcemaps = require('gulp-sourcemaps'),
+      svgmin = require('gulp-svgmin'),
       babel = require('gulp-babel');
 
 // P A T H S
@@ -59,10 +60,17 @@ gulp.task('jscat', ()=>{
   .pipe(concat('App.js'))
   .pipe(gulp.dest(dirs.prod));
 });
+// MINIFY ALL SVGS
+gulp.task('svg', ()=>{
+  gulp.src(dirs.prod+'/*.svg')
+  .pipe(svgmin())
+  .pipe(gulp.dest(dirs.prod+'/img'));
+});
 // WATCH + RUN TASKS ON SAVE
 gulp.task('watch', ()=>{
-	gulp.watch('pre/*.less', ['less', 'csscat']);
+  gulp.watch('src/*.svg', ['svg']);
+  gulp.watch('pre/*.less', ['less', 'csscat']);
 	gulp.watch('pre/*.js', ['ugly', 'jscat']);
 });
 // DEFAULT
-gulp.task('default', ['less', 'ugly', 'csscat', 'jscat', 'watch']);
+gulp.task('default', ['svg', 'less', 'ugly', 'csscat', 'jscat', 'watch']);
