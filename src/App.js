@@ -43,9 +43,9 @@ class App extends Component {
                 <span className="hamburger hamburger-2" />
                 <span className="hamburger hamburger-3" />
               </label>
-              <a href="#" className="menu-item"> <i className="fa fa-bar-chart" /> </a>
-              <a href="#" className="menu-item"> <i className="fa fa-plus" /> </a>
-              <a href="#" className="menu-item"> <i className="fa fa-heart" /> </a>
+              <a href="#" className="menu-item"> <i className="fa fa-balance-scale" /> </a>
+              <a href="#" className="menu-item"> <i className="fa fa-hand-peace-o" /> </a>
+              <a href="#" className="menu-item"> <i className="fa fa-gift" /> </a>
               <a href="#" className="menu-item"> <i className="fa fa-envelope" /> </a>
             </nav>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -81,7 +81,7 @@ class App extends Component {
 
 
         {/* intro section */}
-        <section>
+        <section id="hero">
           <div id="intro">
             <div className="row">
               <div id="introGraphic" className="column">
