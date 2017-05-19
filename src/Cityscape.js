@@ -3,7 +3,7 @@ import ReactSVG from 'react-svg';
 import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-import city from './city-mobile.svg';
+import city from './img/city-mobile.svg';
 
 import './App.css';
 

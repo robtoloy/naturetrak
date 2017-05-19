@@ -9,6 +9,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-player": "^0.18.0",
+    "react-scroll": "^1.5.2",
     "react-slick": "^0.14.11",
     "react-svg": "^2.1.19",
     "react-transition-group": "^1.1.3",

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import Scroll from 'react-scroll';
 
 import logo from './img/logo.svg';
 // import goodees from './goodees.svg';
-import map from './map.svg';
-import fed from './fed.svg';
-import tnt from './tnt.svg';
-import ttv from './ttv.svg';
-import scan from './scan.svg';
-import supply from './supply.svg';
-import enterprise from './enterprise.svg';
-import outro from './outro.svg';
+import map from './img/map.svg';
+import fed from './img/fed.svg';
+import tnt from './img/tnt.svg';
+import ttv from './img/ttv.svg';
+import scan from './img/scan.svg';
+import supply from './img/supply.svg';
+import enterprise from './img/enterprise.svg';
+import outro from './img/outro.svg';
 
 import CarouselOne from './C1';
 import CarouselTwo from './C2';
@@ -19,23 +20,64 @@ import Cityscape from './Cityscape';
 
 import './App.css';
 
+let Link      = Scroll.Link;
+let Element   = Scroll.Element;
+let Events    = Scroll.Events;
+let scroll    = Scroll.animateScroll;
+let scrollSpy = Scroll.scrollSpy;
+
 const toggleVideo = () => {
   let x = document.getElementById('ntVideo');
   x.style.display === 'block' ? x.style.display = 'none' : x.style.display = 'block';
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.scrollToTop = this.scrollToTop.bind(this);
+  }
+  componentDidMount() {
+    Events.scrollEvent.register('begin', () => {
+      console.log('begin', arguments);
+    });
+    Events.scrollEvent.register('end', () => {
+      console.log('end', arguments);
+    });
+    scrollSpy.update();
+  }
+  scrollTo() {
+    scroll.scrollTo(100);
+  }
+  scrollToTop() {
+    scroll.scrollToTop();
+  }
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
   render() {
     return (
       <div>
 
         <div id="navButton">
+          <div className="logo">
+            <CSSTransitionGroup
+              transitionName="cityFade"
+              transitionAppear={true}
+              transitionAppearTimeout={1000}
+              transitionEnter={false}
+              transitionLeave={false}>
+              <img src={logo} alt="" />
+            </CSSTransitionGroup>
+          </div>
+
           <CSSTransitionGroup
             transitionName="cityFade"
             transitionAppear={true}
             transitionAppearTimeout={1000}
             transitionEnter={false}
             transitionLeave={false}>
+
             <nav className="menu">
               <input type="checkbox" href="#" className="menu-open" name="menu-open" id="menu-open" />
               <label className="menu-open-button" htmlFor="menu-open">
@@ -43,11 +85,40 @@ class App extends Component {
                 <span className="hamburger hamburger-2" />
                 <span className="hamburger hamburger-3" />
               </label>
-              <a href="#" className="menu-item"> <i className="fa fa-balance-scale" /> </a>
-              <a href="#" className="menu-item"> <i className="fa fa-hand-peace-o" /> </a>
-              <a href="#" className="menu-item"> <i className="fa fa-gift" /> </a>
-              <a href="#" className="menu-item"> <i className="fa fa-envelope" /> </a>
+              <Link to="target1" className="menu-item"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-50} >
+                  <i className="fa fa-bank"></i>
+                  <h4>1</h4>
+              </Link>
+              <Link to="target2" className="menu-item"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-30} >
+                  <i className="fa fa-cloud"></i>
+                  <h4>2</h4>
+              </Link>
+              <Link to="target3" className="menu-item"
+                spy={true}
+                smooth={true}
+                duration={500}
+                offset={-30} >
+                  <i className="fa fa-thumbs-up"></i>
+                  <h4>3</h4>
+              </Link>
+              <Link to="target4" className="menu-item"
+                spy={true}
+                smooth={true}
+                duration={800}
+                offset={-30} >
+                  <i className="fa fa-user-circle"></i>
+                  <h4>4</h4>
+              </Link>
             </nav>
+
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
               <defs>
                 <filter id="popMenu">
@@ -67,16 +138,6 @@ class App extends Component {
               </defs>
             </svg>
           </CSSTransitionGroup>
-          <div className="logo">
-            <CSSTransitionGroup
-              transitionName="cityFade"
-              transitionAppear={true}
-              transitionAppearTimeout={1000}
-              transitionEnter={false}
-              transitionLeave={false}>
-              <img src={logo} alt="" />
-            </CSSTransitionGroup>
-          </div>
         </div>
 
 
@@ -96,7 +157,7 @@ class App extends Component {
           <div id="video" className="container">
             <div className="row">
               <div id="videoInfo" className="column">
-                <h2>A Higher Standard</h2>
+                <h2>Cannabis Verification Solutions</h2>
                 <p>Learn about NatureTrak in the cannabis industry.</p>
                 <button onClick={toggleVideo}>
                   Watch
@@ -112,6 +173,7 @@ class App extends Component {
         </section>
         {/* video section */}
         {/* problem section */}
+        <Element name="target1"/>
         <section>
           <div id="problem" className="container">
             <div className="row">
@@ -147,90 +209,92 @@ class App extends Component {
         </section>
         {/* problem section */}
         {/* solution section */}
+        <Element name="target2"/>
         <section>
-          <div id="solution" className="container">
-            <div className="row">
-              <div className="column column-40">
-                <div className="vertical">
-                  <blockquote><h2>Solution</h2></blockquote>
-                  <p className="lead">A closed loop, end-to-end solution operating within the rules and regulations set forth by state and local governments.</p>
-                  <h3>Track &amp; Trace</h3>
-                  <p>Track &amp; Trace (TnT) is a cloud-based peer-to-peer system, where information accurately assembles upward as clean and discrete data elements. NatureTrak as a solution is anti-counterfeit, accessible and transparent to both business and the end consumer.</p>
-                  <h3>Benefits</h3>
+            <div id="solution" className="container">
+              <div className="row">
+                <div className="column column-40">
+                  <div className="vertical">
+                    <blockquote><h2>Solution</h2></blockquote>
+                    <p className="lead">A closed loop, end-to-end solution operating within the rules and regulations set forth by state and local governments.</p>
+                    <h3>Track &amp; Trace</h3>
+                    <p>Track &amp; Trace (TnT) is a cloud-based peer-to-peer system, where information accurately assembles upward as clean and discrete data elements. NatureTrak as a solution is anti-counterfeit, accessible and transparent to both business and the end consumer.</p>
+                    <h3>Benefits</h3>
+                    <div>
+                      <ul>
+                        <li>Visibility across supply chains</li>
+                        <li>Deter illegal sales</li>
+                        <li>Proof of supply</li>
+                        <li>Deter theft and fraud</li>
+                        <li>Regulatory compliance</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="column column-60">
                   <div>
-                    <ul>
-                      <li>Visibility across supply chains</li>
-                      <li>Deter illegal sales</li>
-                      <li>Proof of supply</li>
-                      <li>Deter theft and fraud</li>
-                      <li>Regulatory compliance</li>
-                    </ul>
+                    <img className="tnt" src={tnt} alt="" />
                   </div>
                 </div>
               </div>
-              <div className="column column-60">
-                <div>
-                  <img className="tnt" src={tnt} alt="" />
-                </div>
-              </div>
             </div>
-          </div>
-        </section>
+          </section>
         {/* solution section */}
         {/* overview + component1 section */}
+        <Element name="target3"/>
         <section>
-          <div id="overview" className="container">
-            <div className="row">
-              <div className="column column-40">
-                <div className="vertical">
-                  <blockquote><h2>Track. Trace. Verify.</h2></blockquote>
-                  <p className="lead">Cannabis Verification Solutions</p>
-                  <p>Our end-to-end system tracks, traces and validates in real-time the identity, status and location of any product, business or employee through each transaction point, providing patients peace of mind, high quality, legitimatized cannabis products. The safety and security people have come to expect from other industries and goods and services is everything NatureTrak has to offer.</p>
-                  <hr/>
-                  <div>
-                    <ul>
-                      <li>Digital Patient Recommendation Card</li>
-                      <li>B2B License &amp; Employee Verification</li>
-                      <li>Track &amp; Trace</li>
-                      <li>Proof of Origin</li>
-                      <li>Logistics</li>
-                      <li>Payments</li>
-                      <li>Business Enterprise Platform</li>
-                    </ul>
+            <div id="overview" className="container">
+              <div className="row">
+                <div className="column column-40">
+                  <div className="vertical">
+                    <blockquote><h2>Features</h2></blockquote>
+                    <p className="lead">Cannabis Verification Solutions</p>
+                    <p>Our end-to-end system tracks, traces and validates in real-time the identity, status and location of any product, business or employee through each transaction point, providing patients peace of mind, high quality, legitimatized cannabis products. The safety and security people have come to expect from other industries and goods and services is everything NatureTrak has to offer.</p>
+                    <hr/>
+                    <div>
+                      <ul>
+                        <li>Digital Patient Recommendation Card</li>
+                        <li>B2B License &amp; Employee Verification</li>
+                        <li>Track &amp; Trace</li>
+                        <li>Proof of Origin</li>
+                        <li>Logistics</li>
+                        <li>Payments</li>
+                        <li>Business Enterprise Platform</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="column column-60">
-                <img className="ttv" src={ttv} alt="" />
-              </div>
-            </div>
-          </div>
-          <div id="component1" className="container">
-            <div className="row">
-              <div className="column">
-                <img className="scan" src={scan} alt="" />
+                <div className="column column-60">
+                  <img className="ttv" src={ttv} alt="" />
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="column">
-                <h3>B2B Scan</h3>
-                <p><em>Business</em> and <em>Employee</em> verification throughout the supply chain at point of transaction.</p>
+            <div id="component1" className="container">
+              <div className="row">
+                <div className="column">
+                  <img className="scan" src={scan} alt="" />
+                </div>
               </div>
-              <div className="column">
-                <h3>B2C Scan</h3>
-                <p><em>Retailer</em> and <em>Patient</em> verification during the purchase and delivery of medical products.</p>
+              <div className="row">
+                <div className="column">
+                  <h3>B2B Scan</h3>
+                  <p><em>Business</em> and <em>Employee</em> verification throughout the supply chain at point of transaction.</p>
+                </div>
+                <div className="column">
+                  <h3>B2C Scan</h3>
+                  <p><em>Retailer</em> and <em>Patient</em> verification during the purchase and delivery of medical products.</p>
+                </div>
+              </div>
+              <div className="row">
+                <div className="column">
+                  <p>NatureTrak removes the guesswork at every business and patient level interaction. The automated digital cannabis license - a clear, simple and transparent verification solution - identifies and verifies medical marijuana businesses, employees and patients in real-time at each exchange in the value chain.</p>
+                </div>
+                <div className="column">
+                  <p>This provides the absolute minimum regulatory compliance for medical marijuana businesses. A centralized storage of all business-related activities stored and easily managed for audit.</p>
+                </div>
               </div>
             </div>
-            <div className="row">
-              <div className="column">
-                <p>NatureTrak removes the guesswork at every business and patient level interaction. The automated digital cannabis license - a clear, simple and transparent verification solution - identifies and verifies medical marijuana businesses, employees and patients in real-time at each exchange in the value chain.</p>
-              </div>
-              <div className="column">
-                <p>This provides the absolute minimum regulatory compliance for medical marijuana businesses. A centralized storage of all business-related activities stored and easily managed for audit.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
         {/* overview + component1 section */}
         {/* component2 section */}
         <section>
@@ -281,7 +345,7 @@ class App extends Component {
                   </div>
                 </div>
               </div>
-              <div id="carousel1" className="mocks">
+              <div id="carousel1" className="column mocks">
                 <CarouselOne />
               </div>
             </div>
@@ -296,8 +360,8 @@ class App extends Component {
                 <div className="vertical">
                   <blockquote><h2>Payments</h2></blockquote>
                   <p className="lead">Proprietary BSA/AML Compliance Program custom tailored to each state’s marijuana regulations.</p>
-                  <p>NatureTrak powered by Goodees takes responsibility for all regulatory compliance, which includes conducting rigorous State Regulatory Compliance Assessments, BSA/AML compliance, “Know Your Customer” due diligence, transaction due diligence, filing currency transaction reports (CTRs) and filing “Marijuana Limited” Suspicious Activity Reports (SARs).</p>
-                  <p>All compliance is satisfied by one robust cannabis verification solution. NatureTrak powered by Goodees satisfies state BSA/AML compliance obligations by conducting their due diligence and are not independently responsible for regulatory compliance with regard to registered clients.</p>
+                  <p>NatureTrak powered takes responsibility for all regulatory compliance, which includes conducting rigorous State Regulatory Compliance Assessments, BSA/AML compliance, “Know Your Customer” due diligence, transaction due diligence, filing currency transaction reports (CTRs) and filing “Marijuana Limited” Suspicious Activity Reports (SARs).</p>
+                  <p>All compliance is satisfied by one robust cannabis verification solution. NatureTrak powered satisfies state BSA/AML compliance obligations by conducting their due diligence and are not independently responsible for regulatory compliance with regard to registered clients.</p>
                   <p>The Board of Equalization Chair Fiona Ma, Cannabis Safe Payment Act - to make it safer and simpler for cannabis business owners to pay state fees and taxes, encouraging compliance with state laws and providing support for business owners. Specifically, businesses will be able to make cash tax and fee payments at many more locations, including state agencies and local county tax collectors who agree to participate.</p>
                   <hr/>
                   <h3>Benefits</h3>
@@ -327,7 +391,7 @@ class App extends Component {
                   </div>
                 </div>
               </div>
-              <div id="carousel2" className="mocks">
+              <div id="carousel2" className="column mocks">
                 <CarouselTwo />
               </div>
             </div>
@@ -346,7 +410,7 @@ class App extends Component {
                   <p><strong>The Enterprise Solution</strong> – a centralized location for essential cannabis logistics, business documents, government certified records, asset management, and monitoring of real-time business activities–from employee operations, transactions, and inventory analytics.</p>
                 </div>
               </div>
-              <div className="column column-80">
+              <div className="column">
                 <img className="enterprise" src={enterprise} alt="" />
               </div>
             </div>
@@ -354,36 +418,36 @@ class App extends Component {
         </section>
         {/* component5 section */}
         {/* outro section */}
+        <Element name="target4"/>
         <section>
-          <div id="outro" className="container">
-            <div className="row">
-              <div id="outroInfo" className="column">
-                <h1 className="outroHeader">Interested?</h1>
-                <p>Sign up today and stay tuned for the latest release or take a survey below.</p>
-                  <div>
-                          {/* Begin MailChimp Signup Form */}
-                          <style type="text/css" dangerouslySetInnerHTML={{__html: "\n\t#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\n\t/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\n\t   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n" }} />
-                          <div id="mc_embed_signup">
-                            <form action="//naturetrak.us15.list-manage.com/subscribe/post?u=acb5eee66a857bd8300c6e0a1&id=6fefeee5dc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
-                              <div id="mc_embed_signup_scroll">
-                                <input type="email" defaultValue="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
-                                <div style={{position: 'absolute', left: '-5000px'}} aria-hidden="true"><input type="text" name="b_acb5eee66a857bd8300c6e0a1_6fefeee5dc" tabIndex={-1} defaultValue="" /></div>
-                                <div className="clear">
-                                  <input type="submit" defaultValue="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
-                                </div>
-                              </div>
-                            </form>
+            <div id="outro" className="container">
+              <div className="row">
+                <div id="outroInfo" className="column">
+                  <h1 className="outroHeader">Interested?</h1>
+                  <p>Sign up today and stay tuned for the latest release or take a survey below.</p>
+                    <div>
+                      {/* Begin MailChimp Signup Form */}
+                      <style type="text/css" dangerouslySetInnerHTML={{__html: "\n\t#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}\n\t/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.\n\t   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */\n" }} />
+                      <div id="mc_embed_signup">
+                        <form action="//naturetrak.us15.list-manage.com/subscribe/post?u=acb5eee66a857bd8300c6e0a1&id=6fefeee5dc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                          <div id="mc_embed_signup_scroll">
+                            <input type="email" defaultValue="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
+                            <div style={{position: 'absolute', left: '-5000px'}} aria-hidden="true"><input type="text" name="b_acb5eee66a857bd8300c6e0a1_6fefeee5dc" tabIndex={-1} defaultValue="" /></div>
+                            <div className="clear">
+                              <input type="submit" defaultValue="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button" />
+                            </div>
                           </div>
-                          {/*End mc_embed_signup*/}
-                        </div>
-
-              </div>
-              <div className="column">
-                <img className="outro" src={outro} alt="" />
+                        </form>
+                      </div>
+                      {/*End mc_embed_signup*/}
+                    </div>
+                </div>
+                <div className="column">
+                  <img className="outro" src={outro} alt="" />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         {/* outro section */}
       </div>
     );
