@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 
-import marketplace from './marketplace.svg';
-import checkout from './checkout.svg';
-import status from './status.svg';
+import marketplace from './img/marketplace.svg';
+import checkout from './img/checkout.svg';
+import status from './img/status.svg';
 
 class CarouselOne extends Component {
   render() {

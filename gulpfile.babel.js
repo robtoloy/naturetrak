@@ -62,13 +62,13 @@ gulp.task('jscat', ()=>{
 });
 // MINIFY ALL SVGS
 gulp.task('svg', ()=>{
-  gulp.src(dirs.prod+'/*.svg')
+  gulp.src(dirs.pre+'/*.svg')
   .pipe(svgmin())
   .pipe(gulp.dest(dirs.prod+'/img'));
 });
 // WATCH + RUN TASKS ON SAVE
 gulp.task('watch', ()=>{
-  gulp.watch('src/*.svg', ['svg']);
+  gulp.watch('pre/*.svg', ['svg']);
   gulp.watch('pre/*.less', ['less', 'csscat']);
 	gulp.watch('pre/*.js', ['ugly', 'jscat']);
 });
