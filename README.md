@@ -1,8 +1,14 @@
 # NatureTrak
 
-dev
+rob.toloy @ naturetrak (dot) com
+
+### dev
+
 yarn start - dev server
+
 gulp - run task manager
 
-deploy
+
+### deploy
+
 yarn run build - build for prod into /public
