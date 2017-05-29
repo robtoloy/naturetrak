@@ -11,4 +11,4 @@ gulp - run task manager
 
 ### deploy
 
-yarn run build - build for prod into /public
+yarn run build - build for prod
