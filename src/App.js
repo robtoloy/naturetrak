@@ -1,30 +1,25 @@
-import React, { Component } from 'react';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-import Scroll from 'react-scroll';
+import React, { Component } from 'react'
+import Scroll from 'react-scroll'
 
-import logo from './img/logo.svg';
 // import goodees from './goodees.svg';
-import map from './img/map.svg';
-import fed from './img/fed.svg';
-import tnt from './img/tnt.svg';
-import ttv from './img/ttv.svg';
-import scan from './img/scan.svg';
-import supply from './img/supply.svg';
-import enterprise from './img/enterprise.svg';
-import outro from './img/outro.svg';
+import map from './img/map.svg'
+import fed from './img/fed.svg'
+import tnt from './img/tnt.svg'
+import ttv from './img/ttv.svg'
+import scan from './img/scan.svg'
+import supply from './img/supply.svg'
+import enterprise from './img/enterprise.svg'
+import outro from './img/outro.svg'
 
-import CarouselOne from './C1';
-import CarouselTwo from './C2';
-import Video from './video';
-import Cityscape from './Cityscape';
+import Nav from './Nav'
+import CarouselOne from './C1'
+import CarouselTwo from './C2'
+import Video from './video'
+import Cityscape from './Cityscape'
 
-import './App.css';
+import './App.css'
 
-let Link      = Scroll.Link;
 let Element   = Scroll.Element;
-let Events    = Scroll.Events;
-let scroll    = Scroll.animateScroll;
-let scrollSpy = Scroll.scrollSpy;
 
 const toggleVideo = () => {
   let x = document.getElementById('ntVideo');
@@ -32,114 +27,11 @@ const toggleVideo = () => {
 }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.scrollToTop = this.scrollToTop.bind(this);
-  }
-  componentDidMount() {
-    Events.scrollEvent.register('begin', () => {
-      console.log('begin', arguments);
-    });
-    Events.scrollEvent.register('end', () => {
-      console.log('end', arguments);
-    });
-    scrollSpy.update();
-  }
-  scrollTo() {
-    scroll.scrollTo(100);
-  }
-  scrollToTop() {
-    scroll.scrollToTop();
-  }
-  componentWillUnmount() {
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
-  }
   render() {
     return (
       <div>
 
-        <div id="navButton">
-          <div className="logo">
-            <CSSTransitionGroup
-              transitionName="cityFade"
-              transitionAppear={true}
-              transitionAppearTimeout={1000}
-              transitionEnter={false}
-              transitionLeave={false}>
-              <img src={logo} alt="" />
-            </CSSTransitionGroup>
-          </div>
-
-          <CSSTransitionGroup
-            transitionName="cityFade"
-            transitionAppear={true}
-            transitionAppearTimeout={1000}
-            transitionEnter={false}
-            transitionLeave={false}>
-
-            <nav className="menu">
-              <input type="checkbox" href="#" className="menu-open" name="menu-open" id="menu-open" />
-              <label className="menu-open-button" htmlFor="menu-open">
-                <span className="hamburger hamburger-1" />
-                <span className="hamburger hamburger-2" />
-                <span className="hamburger hamburger-3" />
-              </label>
-              <Link to="target1" className="menu-item"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-50} >
-                  <i className="fa fa-bank"></i>
-                  <h4>1</h4>
-              </Link>
-              <Link to="target2" className="menu-item"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-30} >
-                  <i className="fa fa-cloud"></i>
-                  <h4>2</h4>
-              </Link>
-              <Link to="target3" className="menu-item"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-30} >
-                  <i className="fa fa-thumbs-up"></i>
-                  <h4>3</h4>
-              </Link>
-              <Link to="target4" className="menu-item"
-                spy={true}
-                smooth={true}
-                duration={800}
-                offset={-30} >
-                  <i className="fa fa-user-circle"></i>
-                  <h4>4</h4>
-              </Link>
-            </nav>
-
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-              <defs>
-                <filter id="popMenu">
-                  <fegaussianblur in="SourceGraphic" result="blur" stdDeviation={10} />
-                  <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                  <fegaussianblur in="goo" stdDeviation={3} result="shadow" />
-                  <fecolormatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
-                  <feoffset in="shadow" dx={1} dy={1} result="shadow" />
-                  <fecomposite in2="shadow" in="goo" result="goo" />
-                  <fecomposite in2="goo" in="SourceGraphic" result="mix" />
-                </filter>
-                <filter id="goo">
-                  <fegaussianblur in="SourceGraphic" result="blur" stdDeviation={10} />
-                  <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                  <fecomposite in2="goo" in="SourceGraphic" result="mix" />
-                </filter>
-              </defs>
-            </svg>
-          </CSSTransitionGroup>
-        </div>
-
+        <Nav/>
 
         {/* intro section */}
         <section id="hero">
@@ -202,7 +94,7 @@ class App extends Component {
                 <p>Marijuana has operated and existed within the black market for decades and is currently considered illegal by the United States federal government. Despite this status, cannabis is governed at the state level. 30 states have legalized medical marijuana use, and of those 9 have legalized recreational use. Within the last decade, cannabis laws have evolved differently across the country.</p>
               </div>
               <div className="column">
-                <p>Today, although over 58% of American’s currently approve the legalization of medical marjiuana, resistance is felt on both federal and state levels. This division is rooted in the ambiguous nature of marijuana's true application across the country, including its effectiveness in the medicinal, social, and economic stratum.</p>
+                <p>Today, although over 58% of Americans currently approve the legalization of medical marjiuana, resistance is felt on both federal and state levels.</p>
               </div>
             </div>
           </div>
@@ -303,13 +195,13 @@ class App extends Component {
               <div className="column">
                 <div className="vertical">
                   <blockquote><h2>Supply Chain Management</h2></blockquote>
-                  <p>TnT inventory and supply chain management that synchronized with the state’s database to maintain compliance. The is little to no hardware needed beyond a smartphone, laptop or tablet. Track, trace and report in real-time with secure, anti-counterfeit labels and unique identifiers.</p>
+                  <p>Track, trace and report in real-time with secure, anti-counterfeit labels and unique identifiers.</p>
                   <p>This patent-pending technology ensures the scalability and security of unique labels and identifiers by managing computer nodes in a cluster.</p>
                   <hr/>
                   <h3>Benefits</h3>
                   <div>
                     <ul>
-                      <li>Keep track of which node(s) generate and validate which specific labels or unique identifiers</li>
+                      <li>Keeps track of which node(s) generate and validate which specific labels or unique identifiers</li>
                       <li>Manages encryption and decryption of labels or unique identifiers</li>
                       <li>Can physically and virtually track an infinite number of labels or unique identifiers</li>
                       <li>Anti-counterfeit and unparalleled reliability under heavy load</li>
@@ -331,8 +223,8 @@ class App extends Component {
               <div className="column">
                 <div className="vertical">
                   <blockquote><h2>Logistics</h2></blockquote>
-                  <p>Enter an address to order for delivery or search local retailers in a filtered radius to enjoy streamlined convenience like never before. NatureTrak provides the world's leading real-time location of employees, suppliers or retailers, including filterable search results wherever you are. NatureTrak gives both businesses and consumers a secure, trusted, and transparent network of cannabis services and products right at your fingertips.</p>
-                  <p>Patients can choose to search for–and order products from–marijuana localities by strain, popularity, ‘frequent and favorites’, purchase history, or price. Live udpates on orders and full history of purchases ensure localilty support to businesses with access to a fully documented product history from seed-to-sell on all products available on the market.</p>
+                  <p>NatureTrak provides the industry’s best real-time solution for locating employees, suppliers and retailers.  Businesses and consumers alike have access to a secure, trusted, and transparent network of cannabis services and products. Enter an address to order for delivery.  Search local retailers in a filtered radius to enjoy streamlined convenience like never before.</p>
+                  <p>Consumers can search for – and order products from – specific localities by strain and popularity, or using their own ‘frequents and favorites’, purchase history, or price preferences.  They will receive live  updates on orders and have access to a full history of purchases.</p>
                   <hr/>
                   <h3>Benefits</h3>
                   <p>This patent-pending technology ensures the scalability and security of unique labels and identifiers by managing computer nodes in a cluster.</p>
@@ -360,9 +252,8 @@ class App extends Component {
                 <div className="vertical">
                   <blockquote><h2>Payments</h2></blockquote>
                   <p className="lead">Proprietary BSA/AML Compliance Program custom tailored to each state’s marijuana regulations.</p>
-                  <p>NatureTrak powered takes responsibility for all regulatory compliance, which includes conducting rigorous State Regulatory Compliance Assessments, BSA/AML compliance, “Know Your Customer” due diligence, transaction due diligence, filing currency transaction reports (CTRs) and filing “Marijuana Limited” Suspicious Activity Reports (SARs).</p>
-                  <p>All compliance is satisfied by one robust cannabis verification solution. NatureTrak powered satisfies state BSA/AML compliance obligations by conducting their due diligence and are not independently responsible for regulatory compliance with regard to registered clients.</p>
-                  <p>The Board of Equalization Chair Fiona Ma, Cannabis Safe Payment Act - to make it safer and simpler for cannabis business owners to pay state fees and taxes, encouraging compliance with state laws and providing support for business owners. Specifically, businesses will be able to make cash tax and fee payments at many more locations, including state agencies and local county tax collectors who agree to participate.</p>
+                  <p>NatureTrak powered by Goodees takes responsibility for all regulatory compliance, which includes conducting rigorous State Regulatory Compliance Assessments, BSA/AML compliance, “Know Your Customer” due diligence, transaction due diligence, filing currency transaction reports (CTRs) and filing “Marijuana Limited” Suspicious Activity Reports (SARs).</p>
+                  <p>All compliance is satisfied by one robust cannabis verification solution.</p>
                   <hr/>
                   <h3>Benefits</h3>
                   <div id="benefitsRow" className="row">
@@ -373,7 +264,7 @@ class App extends Component {
                           <li>Prepaid stored value wallet</li>
                           <li>Merchant invoicing and bill pay</li>
                           <li>Invoice via email, SMS, and social media</li>
-                          <li>QR code scan for in person payments</li>
+                          <li>QR code scan for in-person payments</li>
                         </ul>
                       </div>
                     </div>
@@ -384,7 +275,6 @@ class App extends Component {
                           <li>Load, unload and top up features</li>
                           <li>Load from check, debit card or bank</li>
                           <li>Unload via ACH or debit card</li>
-                          <li>Cannabis compliance consulting</li>
                         </ul>
                       </div>
                     </div>
