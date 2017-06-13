@@ -48,7 +48,7 @@ class Nav extends Component {
             </CSSTransitionGroup>
           </div>
 
-          <CSSTransitionGroup
+          {/*}<CSSTransitionGroup
             transitionName="cityFade"
             transitionAppear={true}
             transitionAppearTimeout={1000}
@@ -114,7 +114,7 @@ class Nav extends Component {
                 </filter>
               </defs>
             </svg>
-          </CSSTransitionGroup>
+          </CSSTransitionGroup>*/}
         </div>
       </div>
     );
